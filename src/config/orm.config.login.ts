@@ -6,7 +6,7 @@ export default class TypeOrmReplicaConfig {
     return {
       keepConnectionAlive: true,
       type: 'postgres',
-      host: '118.67.134.26',
+      host: '101.101.208.44',
       port: configService.get('RDS_PORT'),
       username: configService.get('RDS_USERNAME'),
       password: configService.get('RDS_PASSWORD'),
@@ -18,9 +18,9 @@ export default class TypeOrmReplicaConfig {
     };
   }
 }
-export const typeOrmConfigAsyncReplica: TypeOrmModuleAsyncOptions = {
+export const typeOrmConfigAsyncLogin: TypeOrmModuleAsyncOptions = {
   imports: [ConfigModule],
-  name: 'replica',
+  name: 'login',
   useFactory: async (configService: ConfigService): Promise<TypeOrmModuleOptions> =>
     TypeOrmReplicaConfig.getOrmConfig(configService),
   inject: [ConfigService],

@@ -14,9 +14,11 @@ export class RafflesService {
     console.log(`raffle create: ${JSON.stringify(raffle)}`);
     return this.raffleRepository.save(raffle);
   }
+
   //bid test용
-  createBid(data) {
-    this.raffleRepository.bidsave(data);
+  async createBid(data) {
+    //console.log(data);
+    await this.raffleRepository.bidsave(data);
   }
 
   //redis용

@@ -12,6 +12,7 @@ import { RaffleModule } from './raffles/raffles.module';
 import { BidsModule } from './bids/bids.module';
 import { typeOrmConfigAsyncReplica } from './config/orm.config.replica';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
+import { typeOrmConfigAsyncLogin } from './config/orm.config.login';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { RedisModule } from '@liaoliaots/nestjs-redis';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
-    //TypeOrmModule.forRootAsync(typeOrmConfigAsyncReplica),
+    TypeOrmModule.forRootAsync(typeOrmConfigAsyncReplica),
+    TypeOrmModule.forRootAsync(typeOrmConfigAsyncLogin),
     RedisModule.forRoot({
       config: {
         host: process.env.REDIS_HOST,

@@ -19,7 +19,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 //         },
 //         slaves: [
 //           {
-//             host: 'readonly.cth7xsz35tjo.ap-northeast-2.rds.amazonaws.com',
+//             host: '118.67.134.26',
 //             port: configService.get('RDS_PORT'),
 //             username: configService.get('RDS_USERNAME'),
 //             password: configService.get('RDS_PASSWORD'),
@@ -43,9 +43,10 @@ export default class TypeOrmConfig {
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       synchronize: true,
       logging: false,
-      //poolSize: 620,
+      poolSize: 8,
       // extra: {
-      //   connectionLimit: 5,
+      // max: 10,
+      //   connectionLimit: 1,
       // },
     };
   }

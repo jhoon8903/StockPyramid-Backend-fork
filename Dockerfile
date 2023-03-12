@@ -1,10 +1,10 @@
 FROM node:18
 
 WORKDIR /server
-  
+
 COPY . .
 
-RUN npm ci
+RUN npm i
 
 RUN npm install pm2 -g
 
